@@ -1,0 +1,55 @@
+#include<iostream>
+#include<string.h>
+
+using namespace std;
+
+class jkt{
+	private:
+		long int harga1,harga2,harga3;
+		const double jkt1=100000, jkt2=125000, jkt3=175000;
+		const double jkt1bns=95000, jkt2bns=120000, jkt3bns=160000;
+		const double jktmax=100;
+	
+  public :
+		void barang(int p,char tp){
+		double hargabarang1= 0, hargabarang2= 0, hargabarang3= 0;
+		if (p > jktmax){
+		hargabarang1=jkt1bns;
+		hargabarang2 =jkt2bns;
+		hargabarang3=jkt3bns;}
+		else{
+		hargabarang1=jkt1;
+		hargabarang2=jkt2;
+		hargabarang3=jkt3;}
+	this->harga1 =hargabarang1 * p;
+	this->harga2 =hargabarang2 * p;	
+	this->harga3 =hargabarang3 * p;	
+	if(tp == 'a')	{
+	cout<<"jkt a x jumlah("<< hargabarang1 <<"x"<< p <<")="<< harga1 <<endl;}
+	else if(tp == 'b'){
+	cout<<"jkt b x jumlah("<< hargabarang2 <<"x"<< p <<")="<< harga2 <<endl;}
+	else if(tp == 'c'){
+	cout<<"jkt c x jumlah("<< hargabarang3 <<"x"<< p <<")="<< harga3 << endl;}
+	}
+	void tt() {
+	cout<<"total harga semua jaket = "<<harga1+harga2+harga3;}
+};
+
+main(){
+	double a,b,c;
+	cout<<"TIPE JAKET :"<<endl
+	<<"jaket a "<<endl
+	<<"jaket b "<<endl
+	<<"jaket c "<<endl;
+	cout<<"jumlah jaket a :";
+	cin>>a;
+	cout<<"jumlah jaket b :";
+	cin>>b;
+	cout<<"jumlah jaket c :";
+	cin>>c;
+	jkt *jkts=new jkt();
+	jkts->barang(a, 'a');
+	jkts->barang(b, 'b');
+	jkts->barang(c, 'c');
+	jkts->tt();
+}
